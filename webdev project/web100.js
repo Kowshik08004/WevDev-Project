@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (savedTheme === 'dark') {
             htmlElement.classList.add('dark');
             themeIcon.className = 'fas fa-sun';
-            themeText.textContent = 'Light Mode';
+            // themeText.textContent = 'Light Mode';
         } else {
             htmlElement.classList.remove('dark');
             themeIcon.className = 'fas fa-moon';
-            themeText.textContent = 'Dark Mode';
+            // themeText.textContent = 'Dark Mode';
         }
     }
 
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Switch to light mode
             htmlElement.classList.remove('dark');
             themeIcon.className = 'fas fa-moon';
-            themeText.textContent = 'Dark Mode';
+            // themeText.textContent = 'Dark Mode';
             localStorage.setItem('theme', 'light');
         } else {
             // Switch to dark mode
             htmlElement.classList.add('dark');
             themeIcon.className = 'fas fa-sun';
-            themeText.textContent = 'Light Mode';
+            // themeText.textContent = 'Light Mode';
             localStorage.setItem('theme', 'dark');
         }
     });
