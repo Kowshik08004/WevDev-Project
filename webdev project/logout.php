@@ -1,7 +1,6 @@
 <?php
 session_start();
 session_destroy();
-echo "About to logout...";
-header("location: index100.html");
+header("Location: /index.html");
 exit;
 ?>

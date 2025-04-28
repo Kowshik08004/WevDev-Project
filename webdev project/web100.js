@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //User portal functionality
     const userPortal = document.getElementById('client').addEventListener('click', function() {
-        window.location.href = 'index.php';
+        window.location.href = 'login.php';
     });
     // Hero Slider Functionality
     const heroSlider = {
