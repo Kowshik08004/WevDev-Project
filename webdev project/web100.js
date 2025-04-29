@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
     const htmlElement = document.documentElement;
+
+    
     
     // Check if theme preference is saved in localStorage
     const savedTheme = localStorage.getItem('theme');

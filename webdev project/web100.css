@@ -153,6 +153,8 @@ header {
   transform: translateY(-2px);
 }
 
+
+
 /* Adjust the navigation links to ensure they don't overlap with client button */
 .nav-links {
   display: flex;
