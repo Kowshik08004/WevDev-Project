@@ -1,12 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
     const htmlElement = document.documentElement;
 
-    
-    
+
+
     // Check if theme preference is saved in localStorage
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    themeToggle.addEventListener('click', function() {
+    themeToggle.addEventListener('click', function () {
         if (htmlElement.classList.contains('dark')) {
             // Switch to light mode
             htmlElement.classList.remove('dark');
@@ -37,10 +37,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    //User portal functionality
-    const userPortal = document.getElementById('client').addEventListener('click', function() {
-        window.location.href = 'login.php';
+    // Get the "client" button
+    const clientButton = document.getElementById('client');
+
+    // Get the modal elements
+    const loginModal = document.getElementById('login-modal');
+    const loginIframe = document.getElementById('login-iframe');
+
+    // Add click event to the client button
+    clientButton.addEventListener('click', function () {
+        // Set the iframe source to the login.html page
+        loginIframe.src = 'login.php';
+
+        // Show the modal
+        loginModal.classList.add('active');
     });
+
+    // Close modal when clicking outside the iframe
+    loginModal.addEventListener('click', function (e) {
+        if (e.target === this) {
+            // Hide the modal
+            this.classList.remove('active');
+
+            // Optionally clear the iframe source when closed
+            // loginIframe.src = '';
+        }
+    });
+
+    //login iframe resize dynamically
+    function setupIframeResizing() {
+        window.addEventListener('message', function(event) {
+            // For security in production, you should validate the origin:
+            // if (event.origin !== 'your-login-page-domain') return;
+            
+            if (event.data.type === 'resize') {
+                const iframe = document.getElementById('login-iframe');
+                if (iframe) {
+                    iframe.style.height = event.data.height + 'px';
+                }
+            }
+        });
+    }
+
     // Hero Slider Functionality
     const heroSlider = {
         slides: null,
@@ -49,11 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
         totalSlides: 0,
         slideInterval: null,
 
-        init: function() {
+        init: function () {
             // Select slides and navigation dots
             this.slides = document.querySelectorAll('.hero-slide');
             this.dots = document.querySelectorAll('.slider-dot');
-            
+
             // Validate slides and dots
             if (this.slides.length === 0 || this.dots.length === 0) {
                 console.error('Slider initialization failed: No slides or dots found');
@@ -76,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.startSlider();
         },
 
-        goToSlide: function(slideIndex) {
+        goToSlide: function (slideIndex) {
             // Remove active class from current slide and dot
             this.slides[this.currentSlide].classList.remove('active');
             this.dots[this.currentSlide].classList.remove('active');
@@ -89,24 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
             this.dots[this.currentSlide].classList.add('active');
         },
 
-        nextSlide: function() {
+        nextSlide: function () {
             let nextSlide = (this.currentSlide + 1) % this.totalSlides;
             this.goToSlide(nextSlide);
         },
 
-        startSlider: function() {
+        startSlider: function () {
             // Clear any existing interval
             if (this.slideInterval) {
                 clearInterval(this.slideInterval);
             }
-            
+
             // Start new interval (change slide every 5 seconds)
             this.slideInterval = setInterval(() => {
                 this.nextSlide();
             }, 3000);
         },
 
-        pauseSlider: function() {
+        pauseSlider: function () {
             if (this.slideInterval) {
                 clearInterval(this.slideInterval);
             }
@@ -120,13 +158,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
         navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (!event.target.closest('.nav-container')) {
             navLinks.classList.remove('active');
             menuToggle.classList.remove('active');
@@ -135,13 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Coverage area accordion functionality
     const areaHeaders = document.querySelectorAll('.area-header');
-    
+
     if (areaHeaders) {
         areaHeaders.forEach(header => {
-            header.addEventListener('click', function() {
+            header.addEventListener('click', function () {
                 const content = this.nextElementSibling;
                 content.classList.toggle('active');
-                
+
                 // Update icon
                 const icon = this.querySelector('i');
                 if (content.classList.contains('active')) {
@@ -155,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Speed Calculator for Packages Page
     const speedCalculator = document.getElementById('speedCalculator');
-    
+
     if (speedCalculator) {
         const usageSlider = document.getElementById('usageSlider');
         const deviceSlider = document.getElementById('deviceSlider');
@@ -163,20 +201,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const deviceValue = document.getElementById('deviceValue');
         const recommendedSpeed = document.getElementById('recommendedSpeed');
         const recommendedPackage = document.getElementById('recommendedPackage');
-        
+
         function updateRecommendation() {
             const usage = parseInt(usageSlider.value);
             const devices = parseInt(deviceSlider.value);
-            
+
             // Update displayed values
             usageValue.textContent = usage;
             deviceValue.textContent = devices;
-            
+
             // Calculate recommended speed (simplified algorithm)
             let speed = 0;
-            
+
             // Base speed per usage level
-            switch(usage) {
+            switch (usage) {
                 case 1: // Light usage
                     speed = 5;
                     break;
@@ -193,16 +231,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     speed = 60;
                     break;
             }
-            
+
             // Multiply by device factor
             speed = speed * (1 + (devices - 1) * 0.5);
-            
+
             // Round to nearest 5
             speed = Math.ceil(speed / 5) * 5;
-            
+
             // Update recommendation
             recommendedSpeed.textContent = speed + ' Mbps';
-            
+
             // Recommend package
             if (speed <= 25) {
                 recommendedPackage.textContent = 'Basic Package';
@@ -214,38 +252,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 recommendedPackage.textContent = 'Business Package';
             }
         }
-        
+
         usageSlider.addEventListener('input', updateRecommendation);
         deviceSlider.addEventListener('input', updateRecommendation);
-        
+
         // Initialize
         updateRecommendation();
     }
 
     // Bill payment form validation
     const paymentForm = document.getElementById('paymentForm');
-    
+
     if (paymentForm) {
-        paymentForm.addEventListener('submit', function(event) {
+        paymentForm.addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const userId = document.getElementById('userId').value;
             const amount = document.getElementById('amount').value;
-            
+
             // Simple validation
             let isValid = true;
             let errorMessage = '';
-            
+
             if (!userId || userId.length < 5) {
                 isValid = false;
                 errorMessage += 'Please enter a valid User ID (minimum 5 characters).\n';
             }
-            
+
             if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
                 isValid = false;
                 errorMessage += 'Please enter a valid payment amount.\n';
             }
-            
+
             if (isValid) {
                 // In a real app, this would submit to server
                 alert('Payment processing initiated! Thank you.');

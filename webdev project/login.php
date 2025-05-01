@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="container" id="signup" style="display:none;">
+  <div class="container auth-switch" id="signup" style="display:none;">
     <h1 class="form-title">Register</h1>
     <form method="post" action="register.php">
       <div class="input-group">
@@ -35,20 +35,28 @@
       </div>
       <input type="submit" class="btn" value="Sign Up" name="signUp">
     </form>
-    <!-- <p class="or">
-        ----------or--------
-      </p>
-      <div class="icons">
-        <i class="fab fa-google"></i>
-        <i class="fab fa-facebook"></i>
-      </div> -->
+    <div class="divider">or continue with</div>
+    <div class="social-buttons">
+      <button class="social-btn">
+        <!-- Google logo (SVG would be better in production) -->
+        <img src="google.svg" alt="Google">
+      </button>
+      <button class="social-btn">
+        <!-- Apple logo (SVG would be better in production) -->
+        <img src="apple.svg" alt="Apple">
+      </button>
+      <button class="social-btn">
+        <!-- Facebook logo (SVG would be better in production) -->
+        <img src="facebook.svg" alt="Facebook">
+      </button>
+    </div>
     <div class="links">
       <p>Already Have Account ?</p>
       <button id="signInButton">Sign In</button>
     </div>
   </div>
 
-  <div class="container" id="signIn">
+  <div class="container auth-switch" id="signIn">
     <h1 class="form-title">Sign In</h1>
     <form method="post" action="register.php">
       <div class="input-group">
@@ -61,21 +69,38 @@
         <input type="password" name="password" id="login_password" placeholder="" required>
         <label for="password">Password</label>
       </div>
-      <p class="recover">
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+      <!-- <p class="recover">
         <a href="#">Forgot Password?</a>
-      </p>
+      </p> -->
       <input type="submit" class="btn" value="Sign In" name="signIn">
     </form>
-    <!-- <p class="or">
-          ----------or--------
-        </p>
-        <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
-        </div> -->
+    <div class="divider">or continue with</div>
+    <div class="social-buttons">
+      <button class="social-btn">
+        <!-- Google logo (SVG would be better in production) -->
+        <img src="google.svg" alt="Google">
+      </button>
+      <button class="social-btn">
+        <!-- Apple logo (SVG would be better in production) -->
+        <img src="apple.svg" alt="Apple">
+      </button>
+      <button class="social-btn">
+        <!-- Facebook logo (SVG would be better in production) -->
+        <img src="facebook.svg" alt="Facebook">
+      </button>
+    </div>
     <div class="links">
       <p>Don't have account yet?</p>
-      <button id="signUpButton">Sign Up</button>
+      <button id="signUpButton">Create an account</button>
     </div>
   </div>
   <script src="script.js"></script>

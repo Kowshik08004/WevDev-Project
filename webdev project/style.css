@@ -1,75 +1,67 @@
-* {
+/* Adjustments for login.php CSS to work inside a modal */
+html,
+body {
+    background: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "poppins", sans-serif;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #c9e1f1, #3498db);
+    height: 100%;
+    overflow: hidden;
+    /* Prevent scrollbars */
 }
 
 .container {
-    background: #fff;
-    width: 450px;
-    padding: 1.5rem;
-    margin: 200px auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
+    width: 510px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+    overflow: hidden;
+    box-sizing: border-box; /* Add this line */
+    margin: 0 auto; /* Add this line to center */
 }
 
+/* Rest of your CSS remains the same */
 .form-title {
-    font-size: 1.5rem;
-    font-weight: bold;
     text-align: center;
-    padding: 1.3rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 24px;
 }
 
 input {
     width: 100%;
-    padding: 15px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+    box-sizing: border-box; /* Add this line */
 }
 
 .input-group {
     position: relative;
     margin-bottom: 25px;
-
 }
 
-/* .input-group i {
-    position: absolute;
-    color: black;
-} */
-
 input:focus {
-    border-color: #4285f4;
-    box-shadow: 0 0 0 1px #4285f4;
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
 input::placeholder {
     color: transparent;
 }
 
-label {
+label:not([for="remember"]) {
     position: absolute;
-    left: 15px;
+    left: 16px;
     top: 15px;
-    color: #777;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #64748b;
     pointer-events: none;
-    background-color: transparent;
+    transition: all 0.2s ease;
+    z-index: 1; /* Add this line */
 }
 
 input:focus~label,
@@ -82,11 +74,50 @@ input:not(:placeholder-shown)~label {
     padding: 0 5px;
 }
 
-.recover {
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 13px;
+  }
+ 
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+  
+  .remember-me input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #3b82f6; /* Tailwind blue */
+    cursor: pointer;
+  }
+  
+  /* Optional: label tweaks to avoid wrapping */
+  .remember-me label {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+
+  .forgot-password a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+
+/* .recover {
     text-align: right;
     font-size: 1rem;
     margin-bottom: 1rem;
-
 }
 
 .recover a {
@@ -97,7 +128,7 @@ input:not(:placeholder-shown)~label {
 .recover a:hover {
     color: #1300c2;
     text-decoration: none;
-}
+} */
 
 .btn {
     font-size: 1.1rem;
@@ -116,38 +147,61 @@ input:not(:placeholder-shown)~label {
     background: #256bdb;
 }
 
-/* .or {
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    text-align: center;
-}
-
-.icons {
-    text-align: center;
-}
-
-.icons i {
-    color: rgb(125, 125, 235);
-    padding: 0.8rem 1.5rem;
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: #94a3b8;
+    font-size: 13px;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .divider::before {
+    margin-right: 16px;
+  }
+  
+  .divider::after {
+    margin-left: 16px;
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
     border-radius: 10px;
-    font-size: 1.5rem;
+    border: 1px solid #e2e8f0;
+    background: white;
     cursor: pointer;
-    border: 2px solid #dfe9f5;
-    margin: 0 15px;
-    transition: 1s;
-}
-
-.icons i:hover {
-    background: #07001f;
-    font-size: 1.6rem;
-    border: 2px solid rgb(125, 125, 235);
-} */
+    transition: all 0.2s ease;
+  }
+  
+  .social-btn:hover {
+    background: #f8fafc;
+  }
+  
+  .social-btn img {
+    height: 20px;
+  }
 
 .links {
     display: flex;
     justify-content: space-around;
     padding: 0 4rem;
-    margin-top: 0.9rem;
+    margin-top: 0.5rem;
     font-weight: bold;
 }
 
@@ -157,9 +211,21 @@ button {
     background-color: transparent;
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 button:hover {
     text-decoration: none;
     color: #1300c2;
 }
+
+/* Animation for switch between login/register */
+.auth-switch {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

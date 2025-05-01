@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,42 @@
     <link rel="stylesheet" href="web100.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-  <!-- Header -->
-<header>
-    <div class="container nav-container">
-        <div class="logo">
-            <h1>QuantumLink <span>Online</span></h1>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>QuantumLink <span>Online</span></h1>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="coverage.html">Coverage</a></li>
+                <li><a href="paybill.html">Pay Bill</a></li>
+                <li><a href="support.html">Support</a></li>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText"></span>
+                </button>
+            </ul>
+            <button id="client"> <i class="fas fa-user"></i>Client Portal</button>
+            <!-- Modal overlay for login form -->
+            <div class="modal-overlay" id="login-modal">
+                <div class="modal-content">
+                    <iframe src="" id="login-iframe" style="width:100%; height: 700px; border:none;"></iframe>
+                </div>
+            </div>
         </div>
-        
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="packages.html">Packages</a></li>
-            <li><a href="coverage.html">Coverage</a></li>
-            <li><a href="paybill.html">Pay Bill</a></li>
-            <li><a href="support.html">Support</a></li>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText"></span>
-            </button>                
-        </ul>
-        <button id="client"> <i class="fas fa-user"></i>Client Portal</button>
-    </div>
-</header>
+    </header>
 
 
     <!-- Hero Section -->
@@ -45,7 +53,8 @@
                 <div class="hero-slide active">
                     <div class="hero-content">
                         <h2>High-Speed Internet For Bangladesh</h2>
-                        <p>Experience lightning-fast, reliable internet connectivity with QuantumLink Online - Bangladesh's premier internet service provider.</p>
+                        <p>Experience lightning-fast, reliable internet connectivity with QuantumLink Online -
+                            Bangladesh's premier internet service provider.</p>
                         <a href="packages.html" class="cta-btn">Get a connection</a>
                     </div>
                     <div class="hero-image">
@@ -55,7 +64,8 @@
                 <div class="hero-slide">
                     <div class="hero-content">
                         <h2>Unlimited Data, Unlimited Possibilities</h2>
-                        <p>Stay connected without worries. Our unlimited data plans ensure you never run out of internet while streaming, working, or gaming.</p>
+                        <p>Stay connected without worries. Our unlimited data plans ensure you never run out of internet
+                            while streaming, working, or gaming.</p>
                         <a href="coverage.html" class="cta-btn">Coverage Areas</a>
                     </div>
                     <div class="hero-image">
@@ -83,7 +93,8 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Ultra-Fast Speeds</h3>
-                    <p>Enjoy blazing fast internet speeds up to 1 Gbps. Stream, game, and download without interruptions.</p>
+                    <p>Enjoy blazing fast internet speeds up to 1 Gbps. Stream, game, and download without
+                        interruptions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -162,7 +173,7 @@
             </div>
         </div>
     </section>
-    
+
 
     <!-- Technology Highlights -->
     <section class="technology-highlights">
@@ -178,7 +189,8 @@
                     </div>
                     <div class="technology-content">
                         <h3>Fiber Optic Network</h3>
-                        <p>100% fiber optic infrastructure providing lightning-fast and stable internet connectivity.</p>
+                        <p>100% fiber optic infrastructure providing lightning-fast and stable internet connectivity.
+                        </p>
                     </div>
                     <div class="technology-stat">
                         <span class="stat-number">99.99%</span>
@@ -226,10 +238,11 @@
             <div class="testimonials-container">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        <p>"QuantumLink Online has transformed my online experience. The speeds are incredible and their customer service is top-notch!"</p>
+                        <p>"QuantumLink Online has transformed my online experience. The speeds are incredible and their
+                            customer service is top-notch!"</p>
                     </div>
                     <div class="testimonial-author">
-                    
+
                         <div class="author-info">
                             <h4>Rahman Ahmed</h4>
                             <p>Dhaka</p>
@@ -238,10 +251,11 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        <p>"As a freelancer, reliable internet is crucial for my work. QuantumLink Online has never let me down in the past 2 years."</p>
+                        <p>"As a freelancer, reliable internet is crucial for my work. QuantumLink Online has never let
+                            me down in the past 2 years."</p>
                     </div>
                     <div class="testimonial-author">
-                    
+
                         <div class="author-info">
                             <h4>Nusrat Jahan</h4>
                             <p>Chittagong</p>
@@ -304,4 +318,5 @@
 
     <script src="web100.js"></script>
 </body>
+
 </html>
